@@ -8,7 +8,7 @@ export const signUpService = async (dto: SignUp) => {
   const { email } = dto;
 
   try {
-    const user = await userRepository.findOne(email);
+    const user = await userRepository.findOne({ email });
     if (user) return new Error("user already registered");
     if (dto?.photo) {
       const imageOfS3 = await s3_service(dto?.photo);
