@@ -8,10 +8,11 @@ export type Address = {
 export type User = {
   name: string;
   email: string;
-  password: string | undefined;
+  password: string;
   phone: string;
   photo: string;
   cover: string;
   type: string;
   address: Address;
+  created_at?: Date;
 };

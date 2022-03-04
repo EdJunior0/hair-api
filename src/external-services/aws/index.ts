@@ -5,7 +5,7 @@ const s3 = new AWS.S3({
   signatureVersion: "v4",
 });
 
-export const s3_service = async (fileData) => {
+export const s3_service = async (fileData: any) => {
   const id = UUID();
   const filenameForS3 = `${fileData.name}.${fileData.extension}`;
   const key = `${id}-${filenameForS3}`;
@@ -26,7 +26,7 @@ export const s3_service = async (fileData) => {
   };
 };
 
-export const s3_service_view = async (filename, expires = 15) => {
+export const s3_service_view = async (filename: any, expires = 15) => {
   const params = {
     Bucket: process.env.NAME_BUCKET,
     Key: filename,

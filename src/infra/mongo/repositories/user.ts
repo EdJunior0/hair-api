@@ -14,13 +14,13 @@ const find = async () => {
   return result;
 };
 
-const findOne = async (filter: User) => {
-  const result = await UserModel.findOne(filter);
+const findOne = async (filter: string) => {
+  const result = await UserModel.findOne({ filter });
   return result;
 };
 
-const findOneWithPassword = async (filter: User) => {
-  const result = await UserModel.findOne(filter).select("+password");
+const findOneWithPassword = async (filter: string) => {
+  const result = await UserModel.findOne({ filter }).select("+password");
   return result;
 };
 

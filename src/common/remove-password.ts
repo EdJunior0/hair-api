@@ -1,6 +1,8 @@
-import User from "../domain/user";
+type UserType = {
+  password: string | undefined;
+};
 
-export const removePassword = (user: User) => {
+export const removePassword = (user: UserType) => {
   user.password = undefined;
   return user;
 };

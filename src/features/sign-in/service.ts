@@ -8,7 +8,7 @@ export const signInService = async (dto: SignIn) => {
   const { email, password } = dto;
 
   try {
-    const user = await userRepository.findOneWithPassword({ email });
+    const user = await userRepository.findOneWithPassword(email);
     if (!user) return new Error("user not found");
     const compare = await bcrypt.compare(password, user.password);
     if (!compare) return new Error("invalid password");
