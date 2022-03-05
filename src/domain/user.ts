@@ -10,8 +10,8 @@ export type User = {
   email: string;
   password: string;
   phone: string;
-  photo: string;
-  cover: string;
+  photo?: string;
+  cover?: string;
   type: string;
   address: Address;
   created_at?: Date;
