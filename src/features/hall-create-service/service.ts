@@ -12,6 +12,6 @@ export const hallCreateServiceService = async (dto: IService) => {
     const service = await serviceRepository.create(dto);
     return service;
   } catch (err) {
-    return new Error(err);
+    return new Error("create service failed");
   }
 };

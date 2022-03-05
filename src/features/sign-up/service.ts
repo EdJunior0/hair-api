@@ -22,6 +22,6 @@ export const signUpService = async (dto: SignUp) => {
     const token = await generateToken(result.id);
     return { user: removePassword(result), token };
   } catch (err) {
-    return new Error(err);
+    return new Error("registration failed");
   }
 };
