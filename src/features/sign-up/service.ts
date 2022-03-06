@@ -2,7 +2,7 @@ import { SignUp } from "./type";
 import userRepository from "../../infra/mongo/repositories/user";
 import { generateToken } from "../../common/authenticate";
 import { removePassword } from "../../common/remove-password";
-import { s3_service } from "../../external-services/aws";
+import { upload_photo } from "../../external-services/cloudinary";
 
 export const signUpService = async (dto: SignUp) => {
   const { email } = dto;
@@ -11,12 +11,12 @@ export const signUpService = async (dto: SignUp) => {
     const user = await userRepository.findOne({ email });
     if (user) return new Error("user already registered");
     if (dto?.photo) {
-      const imageOfS3 = await s3_service(dto?.photo);
-      dto.photo = imageOfS3.key;
+      const imageOfCloudinary = await upload_photo(dto?.photo);
+      dto.photo = imageOfCloudinary;
     }
     if (dto?.cover) {
-      const imageOfS3 = await s3_service(dto?.cover);
-      dto.cover = imageOfS3.key;
+      const imageOfCloudinary = await upload_photo(dto?.cover);
+      dto.cover = imageOfCloudinary;
     }
     const result = await userRepository.create(dto);
     const token = await generateToken(result.id);

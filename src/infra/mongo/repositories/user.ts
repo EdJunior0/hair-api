@@ -13,6 +13,13 @@ type Filter = {
   created_at?: Date | undefined;
 };
 
+export type UserUpdate = {
+  name?: string;
+  phone?: string;
+  photo?: string | undefined;
+  address?: Address;
+};
+
 const create = async (body: User) => {
   const { password } = body;
   const hash = await bcrypt.hash(password, 10);
@@ -23,6 +30,15 @@ const create = async (body: User) => {
 const find = async () => {
   const result = await UserModel.find();
   return result;
+};
+
+const update = async (
+  filter: Filter,
+  update: UserUpdate,
+  options: any = {}
+) => {
+  const updated = await UserModel.findOneAndUpdate(filter, update, options);
+  return updated;
 };
 
 const findOne = async (filter: Filter) => {
@@ -38,6 +54,7 @@ const findOneWithPassword = async (filter: Filter) => {
 export default {
   create,
   find,
+  update,
   findOne,
   findOneWithPassword,
 };
