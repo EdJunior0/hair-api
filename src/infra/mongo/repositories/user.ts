@@ -1,5 +1,5 @@
 import { UserModel } from "../models/user";
-import { User } from "../../../domain/user";
+import { Address, User } from "../../../domain/user";
 import bcrypt from "bcryptjs";
 
 type Filter = {
