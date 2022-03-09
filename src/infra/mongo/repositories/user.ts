@@ -1,5 +1,5 @@
 import { UserModel } from "../models/user";
-import { Address, User } from "../../../domain/user";
+import { Address, HallSchedules, User } from "../../../domain/user";
 import bcrypt from "bcryptjs";
 
 type Filter = {
@@ -18,6 +18,8 @@ export type UserUpdate = {
   phone?: string;
   photo?: string | undefined;
   address?: Address;
+  type?: string;
+  schedules?: HallSchedules;
 };
 
 const create = async (body: User) => {
@@ -38,7 +40,8 @@ const update = async (
   options: any = {}
 ) => {
   const updated = await UserModel.findOneAndUpdate(filter, update, options);
-  return updated;
+  const finded = await UserModel.findOne(filter);
+  return finded;
 };
 
 const findOne = async (filter: Filter) => {

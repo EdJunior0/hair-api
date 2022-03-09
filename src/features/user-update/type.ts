@@ -1,4 +1,4 @@
-import { Address } from "../../domain/user";
+import { Address, HallSchedules } from "../../domain/user";
 
 export type UserUpdate = {
   id?: string;
@@ -6,4 +6,6 @@ export type UserUpdate = {
   phone?: string;
   photo?: string | undefined;
   address?: Address;
+  type?: string;
+  schedules?: HallSchedules;
 };

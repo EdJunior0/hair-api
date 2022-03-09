@@ -3,9 +3,17 @@ import { UserUpdate } from "./type";
 import { userUpdateService } from "./service";
 
 const extract = (req: Request) => {
-  const { name, phone, photo, address } = req.body;
+  const { name, phone, photo, address, type, schedules } = req.body;
 
-  return { id: req.userId, name, phone, photo, address } as UserUpdate;
+  return {
+    id: req.userId,
+    name,
+    phone,
+    photo,
+    address,
+    type,
+    schedules,
+  } as UserUpdate;
 };
 
 export const userUpdateController = async (req: Request, res: Response) => {

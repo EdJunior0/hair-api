@@ -5,6 +5,22 @@ export type Address = {
   city: string;
 };
 
+export type Day = {
+  start: string;
+  end: string;
+};
+
+export type HallSchedules = {
+  monday: Day;
+  tuesday: Day;
+  wednesday: Day;
+  thursday: Day;
+  friday: Day;
+  saturday: Day;
+  sunday: Day;
+  hall_id: string;
+};
+
 export type User = {
   name: string;
   email: string;
@@ -15,4 +31,5 @@ export type User = {
   type: string;
   address: Address;
   created_at?: Date;
+  schedules?: HallSchedules;
 };

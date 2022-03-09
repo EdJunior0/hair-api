@@ -10,6 +10,14 @@ export const userUpdateService = async (dto: UserUpdate) => {
   try {
     const user = await userRepository.findOne({ _id: id });
     if (!user) return new Error("user not found");
+    if (dto?.schedules) {
+      if (user?.type == "hall") {
+        const updated = await userRepository.update({ _id: id }, dto);
+        return updated;
+      } else {
+        return new Error("user not add schedules");
+      }
+    }
     const updated = await userRepository.update({ _id: id }, dto);
     return updated;
   } catch (err) {
