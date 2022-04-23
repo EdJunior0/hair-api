@@ -14,14 +14,14 @@ const daySchema = new Schema<Day>({
 });
 
 const schedulesSchema = new Schema<HallSchedules>({
-  monday: { type: daySchema, required: true },
-  tuesday: { type: daySchema, required: true },
-  wednesday: { type: daySchema, required: true },
-  thursday: { type: daySchema, required: true },
-  friday: { type: daySchema, required: true },
-  saturday: { type: daySchema, required: true },
-  sunday: { type: daySchema, required: true },
-  hall_id: { type: String, required: true },
+  monday: { type: daySchema, required: false },
+  tuesday: { type: daySchema, required: false },
+  wednesday: { type: daySchema, required: false },
+  thursday: { type: daySchema, required: false },
+  friday: { type: daySchema, required: false },
+  saturday: { type: daySchema, required: false },
+  sunday: { type: daySchema, required: false },
+  hall_id: { type: String, required: false },
 });
 
 const userSchema = new Schema<User>({
