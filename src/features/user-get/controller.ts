@@ -3,8 +3,9 @@ import { UserGet } from "./type";
 import { userGetService } from "./service";
 
 const extract = (req: Request) => {
+  const { id } = req.params;
   return {
-    id: req.params,
+    id,
   } as UserGet;
 };
 
