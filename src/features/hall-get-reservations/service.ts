@@ -1,8 +1,8 @@
-import { IService } from "./type";
+import { IReservation } from "./type";
 import reservationRepository from "../../infra/mongo/repositories/reservation";
 import userRepository from "../../infra/mongo/repositories/user";
 
-export const hallGetReservationsService = async (dto: IService) => {
+export const hallGetReservationsService = async (dto: IReservation) => {
   const { hall_id } = dto;
   try {
     const hall = await userRepository.findOne({ _id: hall_id });
