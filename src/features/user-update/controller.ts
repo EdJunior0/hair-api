@@ -3,13 +3,14 @@ import { UserUpdate } from "./type";
 import { userUpdateService } from "./service";
 
 const extract = (req: Request) => {
-  const { name, phone, photo, address, type, schedules } = req.body;
+  const { name, phone, photo, cover, address, type, schedules } = req.body;
 
   return {
     id: req.userId,
     name,
     phone,
     photo,
+    cover,
     address,
     type,
     schedules,

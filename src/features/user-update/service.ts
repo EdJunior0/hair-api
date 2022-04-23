@@ -1,7 +1,5 @@
 import { UserUpdate } from "./type";
 import userRepository from "../../infra/mongo/repositories/user";
-import { generateToken } from "../../common/authenticate";
-import { removePassword } from "../../common/remove-password";
 import { upload_photo } from "../../external-services/cloudinary";
 
 export const userUpdateService = async (dto: UserUpdate) => {
@@ -18,9 +16,17 @@ export const userUpdateService = async (dto: UserUpdate) => {
         return new Error("user not add schedules");
       }
     }
+    if (dto?.photo) {
+      const imageOfCloudinary = await upload_photo(dto?.photo);
+      dto.photo = imageOfCloudinary;
+    }
+    if (dto?.cover) {
+      const imageOfCloudinary = await upload_photo(dto?.cover);
+      dto.cover = imageOfCloudinary;
+    }
     const updated = await userRepository.update({ _id: id }, dto);
     return updated;
   } catch (err) {
-    return new Error("registration failed");
+    return new Error("failed to update service");
   }
 };
