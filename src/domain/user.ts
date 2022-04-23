@@ -11,14 +11,14 @@ export type Day = {
 };
 
 export type HallSchedules = {
-  monday: Day;
-  tuesday: Day;
-  wednesday: Day;
-  thursday: Day;
-  friday: Day;
-  saturday: Day;
-  sunday: Day;
-  hall_id: string;
+  monday?: Day;
+  tuesday?: Day;
+  wednesday?: Day;
+  thursday?: Day;
+  friday?: Day;
+  saturday?: Day;
+  sunday?: Day;
+  hall_id?: string;
 };
 
 export type User = {

@@ -5,6 +5,7 @@ export type UserUpdate = {
   name?: string;
   phone?: string;
   photo?: string | undefined;
+  cover?: string | undefined;
   address?: Address;
   type?: string;
   schedules?: HallSchedules;
