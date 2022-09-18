@@ -2,7 +2,7 @@
   "name": "back-hair",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:Erickson-Vital/back-hair.git",
+  "repository": "https://github.com/EdJunior0/hair-api",
   "author": "Edson Almeida Silva Junior <edsonjunior.1219@gmail.com>",
   "license": "MIT",
   "scripts": {
