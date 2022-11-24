@@ -27,7 +27,7 @@ Create a folder on your computer where you want to clone the repository.
 Clone this repository to your machine using git commands:
 
 ```
-$ https://github.com/EdJunior0/hair-api.git
+$ git clone https://github.com/EdJunior0/hair-api.git
 ```
 
 ## 📦 Development
